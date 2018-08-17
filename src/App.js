@@ -18,10 +18,19 @@ class App extends Component {
         <main>
             <Route exact path="/" component={Landing} />
             <Route path="/library" component={Library} />
+            <Route exact path="/" component={Album} />
         </main>
       </div>
     );
   }
+}
+
+class Album extends Component {
+    render() {
+        return (
+        
+        )
+    }
 }
 
 export default App;
