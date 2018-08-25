@@ -25,6 +25,7 @@ class Album extends Component {
                 <div id="release-info">{this.state.album.releaseInfo}</div>
               </div>
             </section>
+            
             <table id="song-list">
              <colgroup>
               <col id="song-number-column" />
@@ -32,7 +33,13 @@ class Album extends Component {
               <col id="song-duration-column" />
              </colgroup>
              <tbody>
-               </Album>
+            this.state.album.songs.map( (song, index) => 
+              <Link to={`/album/${album.songs}`} key={index}>
+                  <div>{album.song}</div>
+                  <div>{album.song.length} song</div>
+                </Link>
+              )
+            }
              </tbody>
             </table>
           </section>
