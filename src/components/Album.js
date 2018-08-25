@@ -34,7 +34,7 @@ class Album extends Component {
              </colgroup>
              <tbody>
             this.state.album.songs.map( (song, index) => 
-              <Link to={`/album/${album.songs}`} key={index}>
+              <Link to={`/album/${album.song}`} key={index}>
                   <div>{album.song}</div>
                   <div>{album.song.length} song</div>
                 </Link>
