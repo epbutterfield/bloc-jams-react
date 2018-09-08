@@ -10,8 +10,13 @@ class Album extends Component {
         });
         
         this.state = {
-            album: album
+            album: album,
+            currentSong: album.songs[0],
+            isPlaying: false
         };
+        
+        this.audioElement = document.createElement('audio');
+        this.audioElement.src = album.songs[0].audioSrc;
     }
     
     render() {
@@ -33,10 +38,10 @@ class Album extends Component {
               <col id="song-duration-column" />
              </colgroup>
              <tbody>
-            {this.state.album.songs.map( (song, index) => 
+            {this.state.album.songs.map((song, index)
               <tr key={index}>
-                  <tr>{song}</tr>
-                  <tr>{song.length} song</tr>
+                  <td>{song}</td>
+                  <td>{song.length} song</td>
               </tr>
               )}
             }
