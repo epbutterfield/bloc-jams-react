@@ -44,6 +44,10 @@ class Album extends Component {
         }
     }
     
+    
+    //toggle between classes that are associated with elements
+    
+    
     render() {
         return (
           <section className="album">
@@ -57,6 +61,8 @@ class Album extends Component {
             </section>
             
             <table id="song-list">
+              <span className="arrow-dropright-circle"></span>
+              <span className="pause"></span>
              <colgroup>
               <col id="song-number-column" />
               <col id="song-title-column" />
