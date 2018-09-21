@@ -44,7 +44,7 @@ class Album extends Component {
         }
     }
     
-    
+   
     //toggle between classes that are associated with elements
     
     
