@@ -44,7 +44,7 @@ class Album extends Component {
         }
     }
     
-   
+
     //toggle between classes that are associated with elements
     
     
@@ -74,6 +74,10 @@ class Album extends Component {
                   <td>{song.duration}</td>
               </tr>
               )}
+    <span class="icons">
+         <ion-icon name="arrow-dropright-circle"></ion-icon>
+         <ion-icon name="pause"></ion-icon>
+</span>
              </tbody>
             </table>
           </section>
