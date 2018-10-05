@@ -73,7 +73,6 @@ class Album extends Component {
               </div>
             </section>
             
-<<<<<<< HEAD
             <table id="song-list">
              <colgroup>
               <col id="song-number-column" />
