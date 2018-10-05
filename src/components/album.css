@@ -1,48 +1,14 @@
 
 
-tr:hover .ion-play,
-tr.playing .ion-pause,
-tr.paused .ion-play {
-  display: block;
-}
-
-tr .ion-play, 
-tr .ion-pause,
-tr:hover .song-number,
-tr.playing .ion-play, 
-tr.playing .song-number,
-tr.paused .ion-pause,
-tr.paused .song-number {
-  display: none;
-}
 
 
-
-tr button {
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-
-tr button:focus .song-number {
-  display: none;
-}
-tr button:focus .ion-play {
-  display: block;
-}
-
-tr.playing button:focus .song-number,
-tr.playing button:focus .ion-play {
-  display: none;
-}
-tr.playing button:focus .ion-pause {
-  display: block;
-}
 
 
 td {
   padding: 0.75rem;
+}
+
+.hide-text:after{
+  content:"xxxxx";
 }
 

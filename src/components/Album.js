@@ -13,7 +13,8 @@ class Album extends Component {
         this.state = {
             album: album,
             currentSong: album.songs[0],
-            isPlaying: false
+            isPlaying: false,
+            hoveredTrack:0
         };
         
         this.audioElement = document.createElement('audio');
@@ -46,22 +47,45 @@ class Album extends Component {
     }
 
    songClass(song) {
-    if (this.state.currentSong === song && this.state.isPlaying) { 
+        if (this.state.currentSong === song && this.state.isPlaying) { 
+            return 'song playing'; 
+          
+        }else{
+            
+            return 'song';
+        }
 
-        return 'song playing'; 
-      
-    }else{
-        
-        return 'song';
     }
 
-  }
+    trackHover=(index)=>{
+     console.log(index);
+          // this.setState((previousState) => {
+      //     return{
+      //       trackIsHovered: !previousState.trackIsHovered ? true : false,
+      //       hoverdTrackIndex: index
+      //     }
+      // });
+      this.setState({
+         hoveredTrack:index
+      })
+
+    }
     
+    showIcons(index){
+       if(index === this.state.hoveredTrack){
+        return <span className = 'ion-play'> </span>
+
+       }else{
+        return <span> {index+1} </span>
+       }
+    }
    
     //toggle between classes that are associated with elements
     
     
     render() {
+
+     
         return (
           <section className="album">
             <section id="album-info">
@@ -81,12 +105,17 @@ class Album extends Component {
                 </colgroup>  
                 <tbody>
                   {this.state.album.songs.map( (song, index) => 
-                    <tr className={this.songClass(song)} key={index} onClick={() => this.handleSongClick(song)} >
+                    <tr className="song" key={index}  
+                      onMouseOver = {()=>this.trackHover(index)}
+                    >
                       <td className="song-actions">
                         <button>
-                          <span className="song-number">{index+1}</span>
-                          <span className="ion-play"></span>
-                          <span className="ion-pause"></span>
+
+                         
+                        {this.showIcons(index)}
+
+                      
+                        
                         </button>
                       </td>
                       <td className="song-title">{song.title}</td>
@@ -98,6 +127,9 @@ class Album extends Component {
           </section>
         );
     }
+
+    //                       onClick={() => this.handleSongClick(song)
+    //     <span className="ion-pause"></span>  
 }
 
 export default Album;
