@@ -46,25 +46,8 @@ class Album extends Component {
         }
     }
 
-   songClass(song) {
-        if (this.state.currentSong === song && this.state.isPlaying) { 
-            return 'song playing'; 
-          
-        }else{
-            
-            return 'song';
-        }
-
-    }
 
     trackHover=(index)=>{
-     console.log(index);
-          // this.setState((previousState) => {
-      //     return{
-      //       trackIsHovered: !previousState.trackIsHovered ? true : false,
-      //       hoverdTrackIndex: index
-      //     }
-      // });
       this.setState({
          hoveredTrack:index
       })
@@ -74,7 +57,6 @@ class Album extends Component {
     showIcons(index){
        if(index === this.state.hoveredTrack){
         return <span className = 'ion-play'> </span>
-
        }else{
         return <span> {index+1} </span>
        }
@@ -106,6 +88,7 @@ class Album extends Component {
                 <tbody>
                   {this.state.album.songs.map( (song, index) => 
                     <tr className="song" key={index}  
+                      onClick={() => this.handleSongClick(song)}
                       onMouseOver = {()=>this.trackHover(index)}
                     >
                       <td className="song-actions">
@@ -128,8 +111,6 @@ class Album extends Component {
         );
     }
 
-    //                       onClick={() => this.handleSongClick(song)
-    //     <span className="ion-pause"></span>  
 }
 
 export default Album;
