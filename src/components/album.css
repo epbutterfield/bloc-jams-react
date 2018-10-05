@@ -23,6 +23,7 @@ tr button {
 
 tr button:focus .song-number {
     display: none;
+    background: none;
 }
 
 tr button:focus .ion-play {
