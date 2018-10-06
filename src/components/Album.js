@@ -73,27 +73,12 @@ class Album extends Component {
               </div>
             </section>
             
-            <table id="song-list">
-             <colgroup>
-              <col id="song-number-column" />
-              <col id="song-title-column" />
-              <col id="song-duration-column" />
-             </colgroup>
-             <tbody>
-            {this.state.album.songs.map( (song, index) =>
-              <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                  <td>{index + 1}</td>
-                  <td>{song.title}</td>
-                  <td>{song.duration}</td>
-              </tr>
-              )}
+            
     <span class="icons">
          <ion-icon name="arrow-dropright-circle"></ion-icon>
          <ion-icon name="pause"></ion-icon>
 </span>
-             </tbody>
-            </table>
-=======
+             
               <table id="song-list">
                 <colgroup>
                   <col id="song-number-column" />
@@ -116,7 +101,6 @@ class Album extends Component {
                   )}
                 </tbody>
               </table>
->>>>>>> audioplayback_starter
           </section>
         );
     }
