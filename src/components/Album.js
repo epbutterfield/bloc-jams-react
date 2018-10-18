@@ -58,7 +58,7 @@ class Album extends Component {
         const currentIndex =
         this.state.album.songs.findIndex(song =>
         this.state.currentSong === song);
-        const newIndex = Math.min (this.length{this.state.album.song -1}, currentIndex +1);
+        const newIndex = Math.min(this.state.album.songs.length -1, currentIndex +1);
         const newSong =
         this.state.album.songs[newIndex];
         this.setSong(newSong);
