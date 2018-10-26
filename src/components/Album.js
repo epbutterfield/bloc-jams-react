@@ -49,15 +49,14 @@ class Album extends Component {
      this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
      this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
 
-     this.audioElement.addEventListener('volume'), this.eventListeners.voluem);
+     this.audioElement.addEventListener('volume', this.eventListeners.volume);
     }
     
     componentWillUnmount() {
         this.audioElement.src = null;
         this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
         this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
-        
-        this.audioElement.removeEventListener('volume', this.eventListeners..volume);
+        this.audioElement.removeEventListener('volume', this.eventListeners.volume);
     }
     
     setSong(song) {
@@ -104,11 +103,10 @@ class Album extends Component {
         
     }
 
-    formatTime() {
-        formatTime(totalSeconds) {
-          let minutes = Math.floor(totalSeconds / 60);
-          let seconds = totalSeconds % 60;
-            if (seconds < 10) {
+    formatTime(totalSeconds) {
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+          if (seconds < 10) {
               return  minutes + ":0" + seconds
             } else {
               return minutes + ":" + seconds
