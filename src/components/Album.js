@@ -15,7 +15,7 @@ class Album extends Component {
             album: album,
             currentSong: album.songs[0],
             currentTime: 0,
-            volume: 0,
+            //volume: 0,
             duration: album.songs[0].duration,
             isPlaying: false
         };
@@ -42,21 +42,21 @@ class Album extends Component {
          durationchange: e => {
              this.setState({ duration: this.audioElement.duration });
          }
-         volume: e => {
-             this.setState({ volume: this.audioElement.volume });
-     }
+       //  volume: e => {
+         //    this.setState({ volume: this.audioElement.volume });
+         //}
      };
      this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
      this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
 
-     this.audioElement.addEventListener('volume', this.eventListeners.volume);
+     //this.audioElement.addEventListener('volume', this.eventListeners.volume);
     }
     
     componentWillUnmount() {
         this.audioElement.src = null;
         this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
         this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
-        this.audioElement.removeEventListener('volume', this.eventListeners.volume);
+        //this.audioElement.removeEventListener('volume', this.eventListeners.volume);
     }
     
     setSong(song) {
@@ -100,7 +100,9 @@ class Album extends Component {
     }
     
     handleVolumeChange(e) {
-        
+        const newVolume = this.audioElement.volume * e.target.volume;
+        this.audioElement.currentVolume = newVolume;
+        this.setState({ currentVolume: newVolume });
     }
 
     formatTime(totalSeconds) {
@@ -113,7 +115,6 @@ class Album extends Component {
             }
 
           }
-    }
     
    songClass(song) {
     if (this.state.currentSong === song && this.state.isPlaying) { 
@@ -140,10 +141,10 @@ class Album extends Component {
             </section>
             
             
-    <span class="icons">
-         <ion-icon name="arrow-dropright-circle"></ion-icon>
-         <ion-icon name="pause"></ion-icon>
-</span>
+            <span class="icons">
+              <ion-icon name="arrow-dropright-circle"></ion-icon>
+              <ion-icon name="pause"></ion-icon>
+            </span>
              
               <table id="song-list">
                 <colgroup>
@@ -169,7 +170,7 @@ class Album extends Component {
               </table>
             <PlayerBar 
               isPlaying={this.state.isPlaying} currentSong={this.state.currentSong}
-              currentTim={this.audioElement.currentTime}
+              currentTime={this.audioElement.currentTime}
               duration={this.audioElement.duration}
               volume={this.audioElement.volume}
               handleSongClick={() => this.handleSongClick(this.state.currentSong)}
