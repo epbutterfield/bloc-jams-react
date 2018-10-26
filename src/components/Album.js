@@ -102,6 +102,7 @@ class Album extends Component {
         const newVolume = this.audioElement.volume * e.target.volume;
         this.audioElement.currentVolume = newVolume;
         this.setState({ currentVolume: newVolume });
+        //this.audioElement.
     }
 
     formatTime(totalSeconds) {
@@ -176,6 +177,7 @@ class Album extends Component {
               handlePrevClick={() => this.handlePrevClick()}
               handleNextClick={() => this.handleNextClick()}
               handleTimeChange={(e) => this.handleTimeChange(e)}
+              handleVolumeChange={(e) => this.handleVolumeChange(e)}
               formatTime={() => this.formatTime()}
            />
           </section>
