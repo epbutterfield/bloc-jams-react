@@ -99,9 +99,8 @@ class Album extends Component {
     }
     
     handleVolumeChange(e) {
-        console.log(this.setState({ volume: newVolume }));
-        const newVolume = this.audioElement.volume * e.target.volume;
-        this.audioElement.currentVolume = newVolume;
+        const newVolume = e.target.value;
+        this.audioElement.volume = newVolume;
         this.setState({ volume: newVolume });
     }
 
@@ -113,7 +112,6 @@ class Album extends Component {
             } else {
               return minutes + ":" + seconds
             }
-
           }
     
    songClass(song) {
@@ -141,7 +139,7 @@ class Album extends Component {
             </section>
             
             
-            <span class="icons">
+            <span className="icons">
               <ion-icon name="arrow-dropright-circle"></ion-icon>
               <ion-icon name="pause"></ion-icon>
             </span>
@@ -172,7 +170,7 @@ class Album extends Component {
               isPlaying={this.state.isPlaying} currentSong={this.state.currentSong}
               currentTime={this.audioElement.currentTime}
               duration={this.audioElement.duration}
-              volume={this.audioElement.volume}
+              currentVolume={this.state.currentVolume}
               handleSongClick={() => this.handleSongClick(this.state.currentSong)}
               handlePrevClick={() => this.handlePrevClick()}
               handleNextClick={() => this.handleNextClick()}
